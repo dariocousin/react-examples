@@ -1,13 +1,17 @@
 import React from 'react';
-import { sumHook } from "../hooks/sum.hook";
-import { useInput } from "../hooks/useInput.hook";
+import { sumUtils } from "../../utils/sum.utils";
+import { useInput } from "../../hooks/useInput";
 
 export const SumWithHooks = function (props) {
+    // let obj = useInput(props.a);
+    // let a = obj.value;
+    // let bindA = obj.bind;
+    // let resetA = obj.reset;
 
-    const {value: a, bind: bindA, rest: resetA} = useInput(props.a);
+    const {value: a, bind: bindA, reset: resetA} = useInput(props.a);
     const {value: b, bind: bindB, reset: resetB} = useInput(props.b);
 
-    const result = sumHook(a, b);
+    const result = sumUtils(a, b);
 
     return (
         <div>

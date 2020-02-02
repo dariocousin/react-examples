@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
+import './Counter.css';
 
 export default class Counter extends Component {
 
     constructor(props) {
         super(props);
-        console.log('##ABEL## >> Counter >>  constructor', props);
 
         this.state = {
             counter: 0
@@ -20,12 +20,11 @@ export default class Counter extends Component {
     }
 
     render() {
-        console.log('##ABEL## >> Counter >>  render', this.state);
         return (
-            <div>
+            <div className="b-counter">
                 <p>Contador {this.state.counter}</p>
-                <button onClick={this.add.bind(this)}>+</button>
-                <button onClick={this.substract.bind(this)}>-</button>
+                <button className="b-counter__button" onClick={this.add.bind(this)}>+</button>
+                <button className="b-counter__button" onClick={this.substract.bind(this)}>-</button>
             </div>
         )
     }

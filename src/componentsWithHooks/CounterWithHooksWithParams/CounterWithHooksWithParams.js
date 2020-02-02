@@ -1,25 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import './CounterWithHooks.scss';
-import {
-    useParams
-} from "react-router-dom";
-export const CounterWithHooks = function (props) {
+import React, { useState } from 'react';
+import './CounterWithHooksWithParams.scss';
+import { useHistory, useLocation, useParams, useRouteMatch } from "react-router-dom";
+import { useQuery } from "../../hooks/useQuery";
 
+export const CounterWithHooksWithParams = () => {
+    const [count, setCount] = useState(Number(useParams().initialValue));
+    const query = useQuery();
 
+    console.log('##ABEL## >> useLocation >>  ', useLocation());
+    console.log('##ABEL## >> useHistory >>  ', useHistory());
+    console.log('##ABEL## >> useParams >>  ', useParams());
+    console.log('##ABEL## >> useRoutuerMatch >>  ', useRouteMatch());
 
-    const [count, setCount] = useState(useParams().initialValue);
-
-    useEffect(() => {
-        console.log('##ABEL## >> HookCounter >>  HookCounter', props);
-        // Actualiza el título del documento usando la API del navegador
-        document.title = `Your counter is ${count}`;
-
-        // Si estás familiarizado con el ciclo de vida de las clases de React y sus métodos,
-        // el Hook useEffect equivale a componentDidMount, componentDidUpdate y componentWillUnmount combinados.
-    });
 
     return (
         <div className="b-counter-with-hooks">
+            <p>Valor inicial del parametro {query.get('initialParamValue')}</p>
             <p>Contador {count}</p>
             <button className="b-counter-with-hooks__button" onClick={() => setCount(count + 1)}>+</button>
             <button className="b-counter-with-hooks__button" onClick={() => setCount(count - 1)}>-</button>

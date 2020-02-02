@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import './CounterWithHooks.scss';
+import './CounterWithHooksUseEffect.scss';
 
-export const CounterWithHooks = function (props) {
+export const CounterWithHooksUseEffect = function (props) {
     const [count, setCount] = useState(props.initialValue);
 
-    useEffect(() => {
-        // Actualiza el título del documento usando la API del navegador
-        document.title = `Your counter is ${count}`;
-
-        // Si estás familiarizado con el ciclo de vida de las clases de React y sus métodos,
-        // el Hook useEffect equivale a componentDidMount, componentDidUpdate y componentWillUnmount combinados.
-    });
+    useEffect(() => console.log("mount"), []);
+    useEffect(() => console.log("will update count"), [count]);
+    useEffect(() => console.log("will update any"));
+    useEffect(() => () => console.log("will update count or unmount"), [count]);
+    useEffect(() => () => console.log("unmount"), []);
 
     return (
         <div className="b-counter-with-hooks">

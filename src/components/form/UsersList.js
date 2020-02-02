@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 
-class List extends Component {
+class UsersList extends Component {
     render() {
-        console.log(this.props);
         const items = [];
-        for (let i = 0; i < 5; i++) {
-            items.push(<li key={i}>{this.props.textToShow} {i}</li>);
+        for (let i = 0; i < this.props.users.length; i++) {
+            const user = this.props.users[i];
+            items.push(<li key={i}>{user.name} tiene {user.years} años y es {user.rol}
+                <button onClick={() => {this.props.removeUserFn(i)}}>X</button>
+            </li>);
         }
 
         return (
-           <ul>{items}</ul>
+            <ul>{items}</ul>
         )
     }
 };
 
-export default List
+export default UsersList

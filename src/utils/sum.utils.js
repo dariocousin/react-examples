@@ -1,6 +1,4 @@
-import React from 'react';
-
-export const sumHook = function (a, b) {
+export const sumUtils = function (a, b) {
     return Number(a) + Number(b);
 };
 

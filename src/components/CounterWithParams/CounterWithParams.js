@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import './Counter.css';
+import './CounterWithParams.css';
+import { withRouter } from "react-router";
 
-export default class Counter extends Component {
+
+class CounterWithParams extends Component {
+
 
     constructor(props) {
         super(props);
@@ -9,6 +12,8 @@ export default class Counter extends Component {
         this.state = {
             counter: 0
         }
+console.log('##ABEL## >> CounterWithParams >>  constructor', this.props);
+
     }
 
     add(e) {
@@ -30,3 +35,4 @@ export default class Counter extends Component {
     }
 };
 
+export default withRouter(CounterWithParams);

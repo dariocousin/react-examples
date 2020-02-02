@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import './CounterWithHooks.scss';
+import './CounterContext.scss';
+import CounterContext from "../CounterContext";
 
-export const CounterWithHooks = function (props) {
-    const [count, setCount] = useState(props.initialValue);
+export const CounterWithContext =  () => {
+    const initialValue = Number(React.useContext(CounterContext));
+
+    const [count, setCount] = useState(initialValue);
 
     return (
         <div className="b-counter-with-hooks">
@@ -12,4 +15,3 @@ export const CounterWithHooks = function (props) {
         </div>
     )
 };
-

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-export const useScroll = (initialValue) => {
+export const useMouseMove = (initialValue) => {
     const [scroll, setScroll] = useState(initialValue)
 
     const handleScroll = (e) => {
