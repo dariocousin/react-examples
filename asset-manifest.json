@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/react-examples/static/css/main.2d977cc5.chunk.css",
-    "main.js": "/react-examples/static/js/main.08e5fd96.chunk.js",
-    "main.js.map": "/react-examples/static/js/main.08e5fd96.chunk.js.map",
-    "runtime-main.js": "/react-examples/static/js/runtime-main.b6ecd525.js",
-    "runtime-main.js.map": "/react-examples/static/js/runtime-main.b6ecd525.js.map",
-    "static/js/2.a0713058.chunk.js": "/react-examples/static/js/2.a0713058.chunk.js",
-    "static/js/2.a0713058.chunk.js.map": "/react-examples/static/js/2.a0713058.chunk.js.map",
-    "index.html": "/react-examples/index.html",
-    "precache-manifest.3caedf9b0e02b6afb42b94d3970317ce.js": "/react-examples/precache-manifest.3caedf9b0e02b6afb42b94d3970317ce.js",
-    "service-worker.js": "/react-examples/service-worker.js",
-    "static/css/main.2d977cc5.chunk.css.map": "/react-examples/static/css/main.2d977cc5.chunk.css.map",
-    "static/media/logo.svg": "/react-examples/static/media/logo.25bf045c.svg"
+    "main.css": "/react-examples-build/static/css/main.2d977cc5.chunk.css",
+    "main.js": "/react-examples-build/static/js/main.f3e08a81.chunk.js",
+    "main.js.map": "/react-examples-build/static/js/main.f3e08a81.chunk.js.map",
+    "runtime-main.js": "/react-examples-build/static/js/runtime-main.91a651bc.js",
+    "runtime-main.js.map": "/react-examples-build/static/js/runtime-main.91a651bc.js.map",
+    "static/js/2.a0713058.chunk.js": "/react-examples-build/static/js/2.a0713058.chunk.js",
+    "static/js/2.a0713058.chunk.js.map": "/react-examples-build/static/js/2.a0713058.chunk.js.map",
+    "index.html": "/react-examples-build/index.html",
+    "precache-manifest.26e262dcbc07e9532b4279fe3c6995b0.js": "/react-examples-build/precache-manifest.26e262dcbc07e9532b4279fe3c6995b0.js",
+    "service-worker.js": "/react-examples-build/service-worker.js",
+    "static/css/main.2d977cc5.chunk.css.map": "/react-examples-build/static/css/main.2d977cc5.chunk.css.map",
+    "static/media/logo.svg": "/react-examples-build/static/media/logo.25bf045c.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.b6ecd525.js",
+    "static/js/runtime-main.91a651bc.js",
     "static/js/2.a0713058.chunk.js",
     "static/css/main.2d977cc5.chunk.css",
-    "static/js/main.08e5fd96.chunk.js"
+    "static/js/main.f3e08a81.chunk.js"
   ]
 }
