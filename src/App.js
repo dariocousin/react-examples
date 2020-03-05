@@ -1,4 +1,4 @@
-import React, {useReducer} from 'react';
+import React, { useReducer } from 'react';
 import logo from './logo.svg';
 import './App.scss';
 import UserForm from "./components/form/UserForm";
@@ -6,7 +6,9 @@ import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import List from "./components/List";
 import { SumWithHooks } from "./componentsWithHooks/SumWithHooks/SumWithHooks";
 import CounterDispatch from "./componentsWithHooks/CounterDispatch";
-import { CounterWithUseReducerAndContext } from "./componentsWithHooks/CounterWithUserReducerAndContext/CounterWithUseReducerAndContext";
+import State from "./components/State";
+import { CounterWithHooksUseEffect } from "./componentsWithHooks/CounterUseEffect/CounterWithHooksUseEffect";
+import { FormGallery } from "./componentsWithHooks/FormGallery/FormGallery";
 // React es javascript
 // https://medium.com/@camilomontoyau/react-es-solamente-js-bfa30a63079b
 
@@ -65,6 +67,9 @@ const App = () => {
                         <li className="b-list__list">
                             <Link className="b-list__link" to="/list">Lista</Link>
                         </li>
+                        <li className="b-list__list">
+                            <Link className="b-list__link" to="/gallery">Galeria</Link>
+                        </li>
                     </ul>
 
                     {/*<Counter/>*/}
@@ -80,6 +85,7 @@ const App = () => {
                 <Switch>
                     <Route path="/list">
                         <List textToShow="Hola"/>
+                        <State/>
                     </Route>
                     <Route path="/counter/:initialValue">
                         <CounterDispatch.Provider value={{ state, dispatch }}>
@@ -87,10 +93,10 @@ const App = () => {
 
                             {/*<CounterWithUseReducer initialCount={10}/>*/}
 
-                            <CounterWithUseReducerAndContext/>
+                            {/*<CounterWithUseReducerAndContext/>*/}
 
                             {/*<CounterWithContext/>*/}
-                            {/*<CounterWithHooksUseEffect initialValue={0}/>*/}
+                            <CounterWithHooksUseEffect initialValue={10}/>
                             {/*<CounterWithHooks initialValue={10}/>*/}
                             {/*<CounterWithHooksWithParams/>*/}
                             {/*</CounterContext.Provider>*/}
@@ -104,6 +110,9 @@ const App = () => {
                     <Route path="/logo">
                         <img src={logo} style={{ transform: `scale(${scroll / 1000})` }} className="App-logo"
                              alt="logo"/>
+                    </Route>
+                    <Route path="/gallery">
+                        <FormGallery></FormGallery>
                     </Route>
                     <Route path="/">
                         <SumWithHooks a={0} b={0}/>

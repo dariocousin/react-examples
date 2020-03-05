@@ -1,0 +1,8 @@
+.c-form-gallery-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  &__img{
+    height: 200px;
+  }
+}

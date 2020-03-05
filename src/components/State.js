@@ -16,7 +16,7 @@ class State extends Component {
         console.log(this.props);
         const items = [];
         for (let i = 0; i < this.state.numberOfListToShow; i++) {
-            items.push(<li key={i}>{this.props.textToShow} {i}</li>);
+            items.push(<li key={i}>State {this.props.textToShow} {i}</li>);
         }
 
         return (

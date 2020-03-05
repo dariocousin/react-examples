@@ -1,5 +1,26 @@
 import React, { Component } from 'react';
 import UsersList from "./UsersList";
+//
+// console.log(this);
+// const functionNormal = function (){
+//     console.log(this);
+// };
+//
+// const functionArrow = () => {
+//     console.log(this);
+// };
+//
+// const functionArrow = () => {
+//     return 2;
+// };
+//
+// const functionArrow = () => 2;
+//
+// function functionNormal(){
+//
+// }
+//
+// functionNormal();
 
 export default class UserForm extends Component {
 
@@ -39,7 +60,8 @@ export default class UserForm extends Component {
         users.push({name, years, rol});
         // users.push({name: name, years: years, rol: rol});
 
-        this.setState({users: users});
+        // this.setState({users: users});
+        this.setState({users});
     }
 
     // handleChangeName(event) {
