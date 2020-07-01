@@ -3,9 +3,9 @@ import './CounterWithHooksWithParams.scss';
 import { useHistory, useLocation, useParams, useRouteMatch } from "react-router-dom";
 import { useQuery } from "../../hooks/useQuery";
 
-export const CounterWithHooksWithParams = () => {
+export function CounterWithHooksWithParams () {
     const [count, setCount] = useState(Number(useParams().initialValue));
-    const query = useQuery();
+    // const query = useQuery();
 
     console.log('##ABEL## >> useLocation >>  ', useLocation());
     console.log('##ABEL## >> useHistory >>  ', useHistory());
@@ -15,7 +15,7 @@ export const CounterWithHooksWithParams = () => {
 
     return (
         <div className="b-counter-with-hooks">
-            <p>Valor inicial del parametro {query.get('initialParamValue')}</p>
+            {/*<p>Valor inicial del parametro {query.get('initialParamValue')}</p>*/}
             <p>Contador {count}</p>
             <button className="b-counter-with-hooks__button" onClick={() => setCount(count + 1)}>+</button>
             <button className="b-counter-with-hooks__button" onClick={() => setCount(count - 1)}>-</button>
