@@ -24,6 +24,7 @@ function reducer (state, action) {
 export const CounterWithUseReducer = function () {
     const initialValue = Number(useParams().initialValue);
     const [state, dispatch] = useReducer(reducer, initialState);
+
     return (
         <div className="b-counter-with-hooks">
             <p>Count: {state.count}</p>

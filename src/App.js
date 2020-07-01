@@ -1,14 +1,15 @@
 import React, { useReducer } from 'react';
 import logo from './logo.svg';
 import './App.scss';
-import UserForm from "./components/form/UserForm";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import List from "./components/List";
 import { SumWithHooks } from "./componentsWithHooks/SumWithHooks/SumWithHooks";
 import CounterDispatch from "./componentsWithHooks/CounterDispatch";
 import State from "./components/State";
-import { CounterWithHooksUseEffect } from "./componentsWithHooks/CounterUseEffect/CounterWithHooksUseEffect";
 import { FormGallery } from "./componentsWithHooks/FormGallery/FormGallery";
+import { CounterWithUseReducerAndContext } from "./componentsWithHooks/CounterWithUserReducerAndContext/CounterWithUseReducerAndContext";
+import { UserWithHooks } from "./componentsWithHooks/UserWithHooks/UserWithHooks";
+import { CounterWithHooksUseEffect } from "./componentsWithHooks/CounterUseEffect/CounterWithHooksUseEffect";
 // React es javascript
 // https://medium.com/@camilomontoyau/react-es-solamente-js-bfa30a63079b
 
@@ -21,7 +22,13 @@ import { FormGallery } from "./componentsWithHooks/FormGallery/FormGallery";
 
 // Router
 // https://reacttraining.com/react-router/web/guides/quick-start
-const initialState = { count: 20 };
+// const initialState = {
+//     count: 20, form: {}, amiibos: [], animes: []
+// };
+
+const initialState = {
+    count: 20
+};
 
 function reducer (state, action) {
     switch (action.type) {
@@ -43,52 +50,54 @@ const App = () => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
     return (
-        <div className="App">
-            <Router>
+        <CounterDispatch.Provider value={{ state, dispatch }}>
+            <div className="App">
+                <Router>
 
-                <header className="App-header">
-                    <ul className="b-list">
-                        <li className="b-list__list">
-                            <Link className="b-list__link" to="/">Inicio</Link>
-                        </li>
-                        <li className="b-list__list">
-                            <Link className="b-list__link" to="/logo">Logo</Link>
-                        </li>
-                        <li className="b-list__list">
-                            <Link className="b-list__link" to="/counter/5">Counter with 5</Link>
-                        </li>
-                        <li className="b-list__list">
-                            <Link className="b-list__link" to="/counter/5?initialParamValue=25">Counter with 5
-                                queryParams 25</Link>
-                        </li>
-                        <li className="b-list__list">
-                            <Link className="b-list__link" to="/form">Formulario</Link>
-                        </li>
-                        <li className="b-list__list">
-                            <Link className="b-list__link" to="/list">Lista</Link>
-                        </li>
-                        <li className="b-list__list">
-                            <Link className="b-list__link" to="/gallery">Galeria</Link>
-                        </li>
-                    </ul>
+                    <header className="App-header">
+                        <ul className="b-list">
+                            <li className="b-list__list">
+                                <Link className="b-list__link" to="/">Inicio</Link>
+                            </li>
+                            <li className="b-list__list">
+                                <Link className="b-list__link" to="/logo">Logo</Link>
+                            </li>
+                            <li className="b-list__list">
+                                <Link className="b-list__link" to="/counter/5">Counter with 5</Link>
+                            </li>
+                            <li className="b-list__list">
+                                <Link className="b-list__link" to="/counter/5?initialParamValue=25">Counter with 5
+                                    queryParams 25</Link>
+                            </li>
+                            <li className="b-list__list">
+                                <Link className="b-list__link" to="/form">Formulario</Link>
+                            </li>
+                            <li className="b-list__list">
+                                <Link className="b-list__link" to="/list">Lista</Link>
+                            </li>
+                            <li className="b-list__list">
+                                <Link className="b-list__link" to="/gallery">Galeria</Link>
+                            </li>
+                        </ul>
 
-                    {/*<Counter/>*/}
-                    {/*<HolaMundo/>*/}
-                    {/*<State textToShow="Hola"/>*/}
+                        {/*<ListWithHooks list={['Hola', 'Soy un item', 'Me muerooo']}/>*/}
+                        {/*<CounterWithHooks initialValue={5}/>*/}
+                        {/*<HolaMundo/>*/}
+                        {/*<State textToShow="Hola"/>*/}
 
-                    {/*<List textToShow="Hola"/>*/}
-                    {/*<List textToShow="Adios"/>*/}
+                        {/*<List textToShow="Hola"/>*/}
+                        {/*<List textToShow="Adios"/>*/}
 
-                </header>
+                    </header>
 
 
-                <Switch>
-                    <Route path="/list">
-                        <List textToShow="Hola"/>
-                        <State/>
-                    </Route>
-                    <Route path="/counter/:initialValue">
-                        <CounterDispatch.Provider value={{ state, dispatch }}>
+                    <Switch>
+
+                        <Route path="/list">
+                            <List textToShow="Hola"/>
+                            <State/>
+                        </Route>
+                        <Route path="/counter/:initialValue">
                             {/*<CounterContext.Provider value="5">*/}
 
                             {/*<CounterWithUseReducer initialCount={10}/>*/}
@@ -97,29 +106,32 @@ const App = () => {
 
                             {/*<CounterWithContext/>*/}
                             <CounterWithHooksUseEffect initialValue={10}/>
-                            {/*<CounterWithHooks initialValue={10}/>*/}
+                            {/*<ListWithHooks initialValue={10}/>*/}
                             {/*<CounterWithHooksWithParams/>*/}
                             {/*</CounterContext.Provider>*/}
-                        </CounterDispatch.Provider>
 
 
-                    </Route>
-                    <Route path="/form">
-                        <UserForm/>
-                    </Route>
-                    <Route path="/logo">
-                        <img src={logo} style={{ transform: `scale(${scroll / 1000})` }} className="App-logo"
-                             alt="logo"/>
-                    </Route>
-                    <Route path="/gallery">
-                        <FormGallery></FormGallery>
-                    </Route>
-                    <Route path="/">
-                        <SumWithHooks a={0} b={0}/>
-                    </Route>
-                </Switch>
-            </Router>
-        </div>
+                        </Route>
+                        <Route path="/form">
+                            <UserWithHooks/>
+
+                            {/*<UserForm/>*/}
+                        </Route>
+                        <Route path="/logo">
+                            <img src={logo} style={{ transform: `scale(${scroll / 1000})` }} className="App-logo"
+                                 alt="logo"/>
+                        </Route>
+                        <Route path="/gallery">
+                            <FormGallery/>
+                        </Route>
+
+                        <Route path="/">
+                            <SumWithHooks a={0} b={0}/>
+                        </Route>
+                    </Switch>
+                </Router>
+            </div>
+        </CounterDispatch.Provider>
 
     );
 }

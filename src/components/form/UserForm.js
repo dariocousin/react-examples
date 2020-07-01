@@ -35,7 +35,7 @@ export default class UserForm extends Component {
                 {
                     name: 'Abel Cabeza',
                     years: '24',
-                    rol: 'el puto amo'
+                    rol: 'Profesor'
                 },
                 {
                     name: 'Dani Rovira',

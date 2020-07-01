@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 
 export const useMouseMove = (initialValue) => {
     const [scroll, setScroll] = useState(initialValue)
@@ -14,5 +14,6 @@ export const useMouseMove = (initialValue) => {
             document.removeEventListener('mousemove', handleScroll)
         }
     }, [])
-    return scroll
+
+    return scroll;
 }

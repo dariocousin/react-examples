@@ -4,9 +4,9 @@ import CounterDispatch from "../CounterDispatch";
 
 
 export const CounterWithUseReducerAndContext = function () {
-    const {state} = useContext(CounterDispatch);
-    const {dispatch} = useContext(CounterDispatch);
+    const {state, dispatch} = useContext(CounterDispatch);
 
+    console.log('##ABEL## >> CounterWithUseReducerAndContext >>  CounterWithUseReducerAndContext', state);
     return (
         <div className="b-counter-with-hooks">
             <p>Count: {state.count}</p>
