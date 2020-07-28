@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import './FormGallery.scss';
 import { FormGalleryList } from "./Components/FormGalleryList";
+import CounterDispatch from "../CounterDispatch";
 
 export const FormGallery = function () {
+    const [state, dispatch] = useContext(CounterDispatch);
+
     const [galleryList, setGalleryList] = useState([{
         imgUrl: './img/azul.jpg',
-        title: 'Titutlo de azul',
+        title: 'Titulo de azul',
         description: 'Descripción de prueba',
     }, {
         imgUrl: './img/persa.jpg',
-        title: 'Titutlo de persa',
+        title: 'Titulo de persa',
         description: 'Descripción de prueba',
     }]);
 
@@ -41,12 +44,13 @@ export const FormGallery = function () {
 
     return (
         <div className="c-form-gallery">
+            <p>GALERIAAA {state.count}</p>
             <div className="c-form-gallery__form">
                 <label htmlFor="imgUrl">Image</label>
                 <select className="c-form-gallery__select" name="" id="imgUrl" value={imgUrl}
                         onChange={$event => {setImgUrl($event.target.value)}}>
-                    {images.map(image => {
-                        return <option value={image.value}>{image.label}</option>;
+                    {images.map((image, index) => {
+                        return <option  value={image.value}>{image.label}</option>;
                     })}
                 </select>
 

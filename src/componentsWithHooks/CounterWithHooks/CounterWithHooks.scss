@@ -1,11 +1,24 @@
 .c-counter-with-hooks {
+  padding: 10px;
+  display: block;
+
   &__button {
     background: transparent;
     border: 4px solid #09D3AC;
     color: #09D3AC;
     cursor: pointer;
+    padding: 1rem;
+
+    &--small {
+      padding: 0rem;
+    }
   }
+
+  //&--background-sec {
+  //  background-color: yellow;
+  //}
 }
+
 //.c-counter-with-hooks__button {
 //    background: transparent;
 //    border: 4px solid #09D3AC;
@@ -13,3 +26,29 @@
 //    cursor: pointer;
 //  }
 //}
+
+//.c-counter-with-hooks__button {
+//  background: transparent;
+//  border: 4px solid #09D3AC;
+//  color: #09D3AC;
+//  cursor: pointer;
+//}
+
+//.clase {
+//  &-a {
+//    color: red;
+//  }
+//
+//  &-b {
+//    color: blue
+//  }
+//}
+//
+//.clase-a{
+//  color:red
+//}
+//
+//.clase-b{
+//  color:blue
+//}
+

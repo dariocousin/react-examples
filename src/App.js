@@ -8,22 +8,11 @@ import CounterDispatch from "./componentsWithHooks/CounterDispatch";
 import State from "./components/State";
 import { FormGallery } from "./componentsWithHooks/FormGallery/FormGallery";
 import { UserWithHooks } from "./componentsWithHooks/UserWithHooks/UserWithHooks";
-import { CounterWithHooksWithParams } from "./componentsWithHooks/CounterWithHooksWithParams/CounterWithHooksWithParams";
-// React es javascript
-// https://medium.com/@camilomontoyau/react-es-solamente-js-bfa30a63079b
+import { CounterWithUseReducerAndContext } from "./componentsWithHooks/CounterWithUserReducerAndContext/CounterWithUseReducerAndContext";
+import Counter from "./components/Counter/Counter";
+import  CounterWithHooks from "./componentsWithHooks/CounterWithHooks/CounterWithHooks";
+import { ListWithHooks } from "./componentsWithHooks/ListWithHooks/ListWithHooks";
 
-// Formularios
-// https://react-hook-form.com/
-
-// Sass
-// https://create-react-app.dev/docs/adding-a-sass-stylesheet/
-// npm install node-sass --D
-
-// Router
-// https://reacttraining.com/react-router/web/guides/quick-start
-// const initialState = {
-//     count: 20, form: {}, amiibos: [], animes: []
-// };
 
 const initialState = {
     count: 20
@@ -35,8 +24,8 @@ function reducer (state, action) {
             return { count: state.count + 1 };
         case 'decrement':
             return { count: state.count - 1 };
-        // case 'reset':
-        //     return init(action.payload);
+        case 'reset':
+            return initialState;
         default:
             throw new Error();
     }
@@ -49,7 +38,7 @@ const App = () => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
     return (
-        <CounterDispatch.Provider value={{ state, dispatch }}>
+        <CounterDispatch.Provider value={[state, dispatch]}>
             <div className="App">
                 <Router>
 
@@ -94,20 +83,21 @@ const App = () => {
                     <Switch>
 
                         <Route path="/list">
-                            <List textToShow="Hola"/>
-                            <State/>
+                            {/*<List textToShow="Adios" counter={10}/>*/}
+                            <ListWithHooks list={['Hola', 'Soy un item', 'Me muerooo']}/>
+                            {/*<State/>*/}
                         </Route>
                         <Route path="/counter/:initialValue">
                             {/*<CounterContext.Provider value="5">*/}
 
                             {/*<CounterWithUseReducer initialCount={10}/>*/}
-
-                            {/*<CounterWithUseReducerAndContext/>*/}
-
+                            <CounterWithHooks/>
+                            {/*<Counter/>*/}
+                            {/*<FormGallery/>*/}
                             {/*<CounterWithContext/>*/}
                             {/*<CounterWithHooksUseEffect initialValue={10}/>*/}
                             {/*<ListWithHooks initialValue={10}/>*/}
-                            <CounterWithHooksWithParams/>
+                            {/*<CounterWithHooksWithParams/>*/}
                             {/*</CounterContext.Provider>*/}
                         </Route>
                         {/*<Route path="/counter">*/}
