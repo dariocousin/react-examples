@@ -2,16 +2,12 @@ import React, { useReducer } from 'react';
 import logo from './logo.svg';
 import './App.scss';
 import { BrowserRouter as Router, Link, Redirect, Route, Switch } from "react-router-dom";
-import List from "./components/List";
 import { SumWithHooks } from "./componentsWithHooks/SumWithHooks/SumWithHooks";
 import CounterDispatch from "./componentsWithHooks/CounterDispatch";
-import State from "./components/State";
 import { FormGallery } from "./componentsWithHooks/FormGallery/FormGallery";
 import { UserWithHooks } from "./componentsWithHooks/UserWithHooks/UserWithHooks";
-import { CounterWithUseReducerAndContext } from "./componentsWithHooks/CounterWithUserReducerAndContext/CounterWithUseReducerAndContext";
-import Counter from "./components/Counter/Counter";
-import  CounterWithHooks from "./componentsWithHooks/CounterWithHooks/CounterWithHooks";
 import { ListWithHooks } from "./componentsWithHooks/ListWithHooks/ListWithHooks";
+import { CounterWithHooksWithParams } from "./componentsWithHooks/CounterWithHooksWithParams/CounterWithHooksWithParams";
 
 
 const initialState = {
@@ -91,20 +87,19 @@ const App = () => {
                             {/*<CounterContext.Provider value="5">*/}
 
                             {/*<CounterWithUseReducer initialCount={10}/>*/}
-                            <CounterWithHooks/>
+                            {/*<CounterWithHooks/>*/}
                             {/*<Counter/>*/}
                             {/*<FormGallery/>*/}
                             {/*<CounterWithContext/>*/}
                             {/*<CounterWithHooksUseEffect initialValue={10}/>*/}
                             {/*<ListWithHooks initialValue={10}/>*/}
-                            {/*<CounterWithHooksWithParams/>*/}
+                            <CounterWithHooksWithParams/>
                             {/*</CounterContext.Provider>*/}
                         </Route>
                         {/*<Route path="/counter">*/}
                         {/*    <CounterWithHooksWithParams/>*/}
                         {/*</Route>*/}
                         <Redirect from='/counter' to='/counter/5'/>
-
                         <Route path="/form">
                             <UserWithHooks/>
                             {/*<UserForm/>*/}

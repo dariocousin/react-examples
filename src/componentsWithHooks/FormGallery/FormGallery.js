@@ -1,10 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import './FormGallery.scss';
-import { FormGalleryList } from "./Components/FormGalleryList";
-import CounterDispatch from "../CounterDispatch";
+import { FormGalleryList } from "./components/FormGalleryList";
 
 export const FormGallery = function () {
-    const [state, dispatch] = useContext(CounterDispatch);
+    // const [state, dispatch] = useContext(CounterDispatch);
 
     const [galleryList, setGalleryList] = useState([{
         imgUrl: './img/azul.jpg',
@@ -16,9 +15,10 @@ export const FormGallery = function () {
         description: 'Descripción de prueba',
     }]);
 
-    const [title, setTitle] = useState('');
-    const [imgUrl, setImgUrl] = useState('./img/azul.jpg');
-    const [description, setDescription] = useState('');
+    const [cat, setCat] = useState({ imgUrl: './img/azul.jpg', title: '', description: '' });
+    // const [imgUrl, setImgUrl] = useState('./img/azul.jpg');
+    // const [title, setTitle] = useState('');
+    // const [description, setDescription] = useState('');
 
     const images = [{
         label: 'Azul ruso',
@@ -31,8 +31,25 @@ export const FormGallery = function () {
         value: './img/siames.jpg'
     }];
 
-    const addItem = () => {
-        setGalleryList([...galleryList, { imgUrl, title, description }]);
+    const addItem = ($event) => {
+        $event.preventDefault();
+        // const imgUrl = document.getElementById('imgUrl').value;
+        // const title = document.getElementById('title').value;
+        // const description = document.getElementById('description').value;
+
+        // const array = [1,2,3]
+        // const array1 = [4,5,6]
+        //
+        // // const array2 = [array];
+        // const array2 = [...array, ...array1,7,8,9];
+        //
+        // console.log('##ABEL## >> FormGallery >>  addItem', array2); // [1,2,3,4,5,6,7,8,9]
+        //
+        // console.log('##ABEL## >> FormGallery >>  addItem', array2); // [[1,2,3]]
+        // console.log('##ABEL## >> FormGallery >>  addItem', array2[0][0]); // 1
+        // console.log('##ABEL## >> FormGallery >>  addItem', array2[0][1]); // 2
+        setGalleryList([...galleryList, cat]);
+        // console.log('##ABEL## >> FormGallery >>  addItem', { imgUrl:imgUrl, title:title, description:description });
     };
 
 
@@ -44,24 +61,24 @@ export const FormGallery = function () {
 
     return (
         <div className="c-form-gallery">
-            <p>GALERIAAA {state.count}</p>
-            <div className="c-form-gallery__form">
+            {/*<p>GALERIAAA {state.count}</p>*/}
+            <form onSubmit={addItem} className="c-form-gallery__form">
                 <label htmlFor="imgUrl">Image</label>
-                <select className="c-form-gallery__select" name="" id="imgUrl" value={imgUrl}
-                        onChange={$event => {setImgUrl($event.target.value)}}>
+                <select className="c-form-gallery__select" name="" id="imgUrl" value={cat.imgUrl}
+                        onChange={$event => {setCat({...cat,imgUrl: $event.target.value})}}>
                     {images.map((image, index) => {
-                        return <option  value={image.value}>{image.label}</option>;
+                        return <option key={index} value={image.value}>{image.label}</option>;
                     })}
                 </select>
 
                 <label htmlFor="title">Title</label>
-                <input className="c-form-gallery__input" id="title" type="text" value={title}
-                       onChange={$event => {setTitle($event.target.value)}}/>
+                <input className="c-form-gallery__input" id="title" type="text" value={cat.title}
+                       onChange={$event => {setCat({...cat,title: $event.target.value})}}/>
                 <label htmlFor="description">Description</label>
-                <textarea className="c-form-gallery__textarea" id="description" cols="30" rows="10" value={description}
-                          onChange={$event => {setDescription($event.target.value)}}/>
-                <button className="c-form-gallery__button" onClick={() => addItem()}>Añadir</button>
-            </div>
+                <textarea className="c-form-gallery__textarea" id="description" cols="30" rows="10" value={cat.description}
+                          onChange={$event => {setCat({...cat,description: $event.target.value})}}/>
+                <input type="submit" value="Añadir" className="c-form-gallery__button"/>
+            </form>
             <FormGalleryList galleryList={galleryList}/>
         </div>
     )

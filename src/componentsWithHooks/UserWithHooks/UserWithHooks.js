@@ -25,7 +25,6 @@ export function UserWithHooks () {
     }
 
     function removeUser (i) {
-        console.log('##ABEL## >> removeUser >>  removeUser',);
         // let localUsers = Object.assign([], users);
         let localUsers = [...users];
 
@@ -40,7 +39,6 @@ export function UserWithHooks () {
     }
 
     function addUser (user) {
-        console.log('##ABEL## >> removeUser >>  removeUser',);
         // let localUsers = Object.assign([], users);
         if(user.index){
             setUsers(users.splice(user.index, 1, user))
